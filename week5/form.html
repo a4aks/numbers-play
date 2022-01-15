@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+    <style>
+        form {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            border: 2px solid red;
+            padding: 20px;
+        }
+
+        form>input {
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        table {
+            border: 1px solid black;
+        }
+
+        td,th {
+            border: 1px solid black;
+        }
+        #box{
+            float: left;
+            margin:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id = "box">
+        <form id="form">
+            <labeel>ADD EMPLOYEE DETAILS</labeel>
+            <input id="ename" type="text" placeholder="Enter Your Name" />
+            <select id="dept">
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="Finance">Finance</option>
+            </select>
+            <input id="tsales1" type="number" placeholder="Total Sales in Year 1" />
+            <input id="tsales2" type="number" placeholder="Total Sales in Year 2" />
+    
+            <input type="submit" value="ADD" />
+        </form>
+    </div>
+    <div>
+        <button onclick="sortEmployeebyasc()">Ascending</button>
+        <button onclick="sortEmployeebydesc()">Descending</button>
+    </div>
+    
+    <table>
+        <thead>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Sales1</th>
+            <th>Sales2</th>
+            <th>Average Sales</th>
+        </thead>
+        <tbody></tbody>
+    </table>
+</body>
+<script>
+
+    var tbody = document.querySelector('tbody');
+    let employee = [];
+
+    function sortEmployeebyasc(val){
+         employee.sort(function(x,y){
+            return x.avg - y.avg;
+         });
+       console.log(employee);
+       displaytable(employee, tbody);
+    }
+    function sortEmployeebydesc(val){
+         employee.sort(function(x,y){
+            return y.avg - x.avg;
+         });
+       console.log(employee);
+       displaytable(employee, tbody);
+    }
+
+    document.querySelector('#form').addEventListener("submit",addEmployee);
+    function addEmployee(event) {
+        event.preventDefault();
+
+        var name = document.querySelector('#ename').value;
+        var department = document.querySelector('#dept').value;
+        var sales1 = document.querySelector('#tsales1').value;
+        var sales2 = document.querySelector('#tsales2').value;
+        var avg = (Number(sales1) + Number(sales2)) / 2;
+        const empobj = {
+            name: name,
+            dept: department,
+            sales1: sales1,
+            sales2: sales2,
+            avg: avg,
+        };
+        employee.push(empobj);
+        displaytable(employee, tbody);
+    }
+
+    function displaytable(employee, tbody) {
+        tbody.innerHTML  = '';
+        for (let i = 0; i < employee.length; i++) {
+            var tr1 = document.createElement('tr');
+            var td1 = document.createElement('td');
+            td1.textContent = employee[i].name
+            var td2 = document.createElement('td');
+            td2.textContent = employee[i].dept;
+            var td3 = document.createElement('td');
+            td3.textContent = employee[i].sales1;
+            var td4 = document.createElement('td');
+            td4.textContent = employee[i].sales2;
+            var td5 = document.createElement('td');
+            td5.textContent = employee[i].avg;
+            tr1.append(td1, td2, td3, td4, td5);
+            tbody.append(tr1);
+        }
+    }
+
+</script>
+
+</html>
