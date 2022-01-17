@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+    <style>
+        #container {
+            width: 900px;
+            height: 620px;
+            border: 3px solid black;
+            margin: auto;
+            background-color: lightsteelblue;
+        }
+
+        #grid-box {
+            padding: 20px;
+            display: grid;
+            grid-column-gap: 20px;
+            grid-row-gap: 10px;
+            grid-template-columns: 420px 420px;
+            grid-template-rows: 140px 140px 140px 140px;
+            grid-template-areas: 'a b'
+                'a c'
+                'a d'
+                'e f';
+        }
+
+        #grid-box>div {
+            background-color: white;
+        }
+
+        #box1 {
+            background-color: blue;
+            grid-area: a;
+        }
+
+        #box1>p {
+            font-size: 20px;
+            padding-left: 10px;
+        }
+
+        div+p {
+            font-size: 30px;
+        }
+
+        #box2 {
+            grid-area: b;
+        }
+
+        #box3 {
+            grid-area: c;
+        }
+
+        #box4 {
+            grid-area: d;
+        }
+
+        #box5 {
+            grid-area: e;
+        }
+
+        #box6 {
+            grid-area: f;
+        }
+
+        #grid-box>div>img {
+            float: left;
+            margin-right: 10px;
+        }
+
+        #grid-box>div>p {
+            margin-top: -10px;
+        }
+
+        h5 {
+            color: rgb(58, 39, 179);
+            font-weight: bold;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #box1{
+                display:flex;
+                flex-direction: column;
+            }
+            #box1 > img {
+                margin-bottom: 10px;
+            }
+            #grid-box {
+                grid-template-columns: auto auto;
+                grid-template-rows: 400px auto auto;
+                grid-template-areas: 'a a'
+                    'b c'
+                    'd e';
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="grid-box">
+            <div id="box1">
+                <img src="https://via.placeholder.com/420x200" />
+                <p>Ahmedabad joint rally with Trump will be historic, says Modi</p>
+                <p>KALLOL BHATTACHERJEE</p>
+                <p>SUHASINI HAIDAR</p>
+                <p>U.S. President to visit Sabarmati Ashram ahead of 'Namaste Trump' event</p>
+            </div>
+            <div id="box2">
+                <img src="https://via.placeholder.com/120x120" />
+                <h5>THE HUDDLE</h5>
+                <p>The Huddle 2020 | Regional integration pegged to SAARC revival, says Ranil Wickremesinghe</p>
+            </div>
+            <div id="box3">
+                <img src="https://via.placeholder.com/120x120" />
+                <h5>NATIONAL</h5>
+                <p>Over 10 lakh Kashmir students to don school uniforms after seven months.</p>
+            </div>
+            <div id="box4">
+                <img src="https://via.placeholder.com/120x120" />
+                <h5>NATIONAL</h5>
+                <p>Some restrictions imposed on export of medical equipment to China, says MEA</p>
+            </div>
+            <div id="box5">
+                <img src="https://via.placeholder.com/120x120" />
+                <h5>NATIONAL</h5>
+                <p>Ahmedabad gliitters to welcome Donald Trump</p>
+            </div>
+            <div id="box6">
+                <img src="https://via.placeholder.com/120x120" />
+                <h5>THE HUDDLE</h5>
+                <p>Only a "a mcroscopic minority" protesting aganst CAA: Tejaswi Suryas</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
