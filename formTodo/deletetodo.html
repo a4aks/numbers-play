@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Todo</title>
+    <style>
+         form {
+            margin: auto;
+            border: 2px solid red;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        form > input {
+            margin-bottom: 20px;
+            margin-top: 20px;
+            height: 30px;
+        }
+        .flex{
+            display: flex;
+            flex-direction: row;
+            margin:auto;
+            width:500px;
+            border:2px solid red;
+            justify-content: space-between;
+            padding: auto;
+        }
+        .bg-color{
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type = "text" name = "todo" placeholder="enter the item name"/>
+        <input type = "submit" value = "ADD TODO" />
+    </form>
+    <div id = "container">
+
+    </div>
+</body>
+<script>
+
+      let todos = [];
+      document.querySelector("form").addEventListener("submit",addForm);
+      var display = document.getElementById("container");
+
+      function addForm(e){
+         e.preventDefault();
+         var todo = e.target.todo.value;
+
+         var item = {
+             name: todo,
+             status:false,
+             id:Math.random()*10
+         };
+         todos.push(item);
+        //  console.log(todos);
+         onchange(todos);
+      }
+
+      function onchange(todos){
+          console.log(todos);
+          display.innerHTML = '';
+          todos.forEach(todo => {
+              createTodoItem(todo)
+          });
+      }
+
+      function createTodoItem(item){
+          const parent = document.createElement('div');
+          parent.setAttribute('class','flex');
+
+          const title = document.createElement('p');
+          title.innerText = item.name;
+
+          const dele = document.createElement('button');
+          dele.innerText = "Delete";
+          dele.addEventListener("click", deleteTodo);
+
+          parent.append(title,dele);
+          display.append(parent);
+      }
+
+      function deleteTodo(e){
+        console.log(e.target.parentNode);
+        e.target.parentNode.remove();
+      }
+
+
+</script>
+</html>
