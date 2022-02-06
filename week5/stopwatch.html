@@ -38,7 +38,7 @@
 
     function stopTimer() {
         clearInterval(timerIdRef)
-        timerIdRef = null;
+        timerIdRef = null;7
     }
 
     function reserTimer() {
@@ -53,7 +53,6 @@
         timeElement.textContent = timeInString;
     }
 
-    // window.addEventListener("load", function () {
         const startElement = document.getElementById("start");
         const stopElement = document.getElementById("stop");
         const resetElement = this.document.getElementById("reset")
@@ -61,7 +60,6 @@
         startElement.addEventListener("click", startTimer);
         stopElement.addEventListener("click", stopTimer);
         resetElement.addEventListener("click", reserTimer)
-    // })
 </script>
 
 </html>

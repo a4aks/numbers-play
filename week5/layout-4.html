@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASSIGNMENT</title>
+    <style>
+        #content {
+            width: 1200px;
+            height: 300px;
+            border: 3px solid black;
+            margin: 150px 10px 150px 10px;
+            padding: 20px;
+        }
+
+        #grid-box {
+            display: grid;
+            grid-row-gap: 30px;
+            grid-column-gap: 10px;
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: 80px 200px;
+            grid-template-areas:
+                'a a a a'
+                'b c d e';
+        }
+
+        #box1 {
+            background-color: yellow;
+            grid-area: a;
+        }
+
+        #box2 {
+            background-color: red;
+            grid-area: b;
+        }
+
+        #box3 {
+            background-color: green;
+            grid-area: c;
+        }
+
+        #box4 {
+            background-color: rgb(101, 62, 138);
+            grid-area: d;
+        }
+
+        #box5 {
+            background-color: rgb(165, 99, 99);
+            grid-area: e;
+        }
+
+        .box {
+            text-align: left;
+            font-size: x-large;
+            padding: 10px;
+            color: gray;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #content {
+                width: 500px;
+                height: 550px;
+                border: 3px solid black;
+                margin: auto;
+                padding: 20px;
+            }
+
+            #grid-box {
+                display: grid;
+                grid-row-gap: 30px;
+                grid-column-gap: 10px;
+                grid-template-columns: auto auto;
+                grid-template-rows: 80px 200px 200px;
+                grid-template-areas:
+                    'a a'
+                    'b c'
+                    'd e';
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            #content {
+                width: 500px;
+                height: 1000px;
+                border: 3px solid black;
+                margin: auto;
+                padding: 20px;
+            }
+
+            #grid-box {
+                display: grid;
+                grid-row-gap: 30px;
+                grid-column-gap: 10px;
+                grid-template-columns: auto;
+                grid-template-rows: 80px 200px 200px 200px 200px;
+                grid-template-areas:
+                    'a'
+                    'b'
+                    'c'
+                    'd'
+                    'e';
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div id="grid-box">
+            <div class="box" id="box1">Navigation</div>
+            <div class="box" id="box2">BOX1</div>
+            <div class="box" id="box3">BOX2</div>
+            <div class="box" id="box4">BOX3</div>
+            <div class="box" id="box5">BOX4</div>
+        </div>
+    </div>
+</body>
+
+</html>

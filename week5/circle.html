@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid red;
+            border-radius: 20px;
+            margin: auto;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .box div {
+            margin-bottom: 20px;
+        }
+
+        .box div input {
+            width: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <form id="form">
+            <div>
+                <label>Enter the value of a:</label>
+                <input type="text" id="val1" />
+            </div>
+
+            <div>
+                <label>Enter the value of b:</label>
+                <input type="text" id="val2" />
+            </div>
+            <div>
+                <label>Enter a choice</label>
+                <ol>
+                    <li>Add</li>
+                    <li>Subtract</li>
+                    <li>Divide</li>
+                    <li>Multiply</li>
+                </ol>
+                <input type="number" id="choice" />
+                <input type="submit" value="Calculate">
+            </div>
+        </form>
+
+        <div id="result">
+
+        </div>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", calculate);
+        var result = document.querySelector("#result");
+
+        function calculate(e) {
+            e.preventDefault();
+            var a1 = document.querySelector("#val1").value;
+            var b1 = document.querySelector("#val2").value;
+
+            var choice = document.querySelector("#choice").value;
+             if(choice === '1'){
+                 result.textContent = "The add of a and b is:" + (Number(a1)+Number(a1));
+                console.log(Number(a1)+Number(a1));
+             }else if(choice === '2'){
+                result.textContent = "The Subtract of a and b is:" + (Number(a1)-Number(a1));
+             }else if(choice === '3'){
+                result.textContent = "The Divide of a and b is:" + (Number(a1)/Number(a1));
+             }else if(choice === '4'){
+                result.textContent = "The Product of a and b is:" + (Number(a1)*Number(a1));
+             }
+        }
+    </script>
+</body>
+
+</html>
